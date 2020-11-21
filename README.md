@@ -66,7 +66,7 @@
 - has_one :credit_number
 - has_one :address
 - belongs_to :user
-- belongs_to :itemaa
+- belongs_to :item
 
 <!-- ## groupsテーブル
 |Column|Type|Options|
