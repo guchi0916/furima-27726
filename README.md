@@ -8,40 +8,49 @@
 |password|string|null: false|
 |name|string|null: false|
 |ruby_name|string|null: false|
-|birthday|string|null: false|
+|birthday|date|null: false|
 
 ### Association
 - has_many :items
-- has_many :purchase
+- has_many :purchases
 
 ## itemテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|string|-------|
-|name|string|-------|
-|price|integer|-------|
-|item_detail|text|-------|
-|category|string|-------|
-|status|string|-------|
-|charge_delivery_fee|text|-------|
-|ship_form_area|string|-------|
-|days|text|-------|
-|user_id|integer|-------|
+|name|string|null: false|
+|price|integer|null: false|
+|item_detail|text|null: false|
+|category|string|null: false|
+|status|string|null: false|
+|charge_delivery_fee|text|null: false|
+|ship_form_area|string|null: false|
+|days|text|null: false|
+|user_id|integer|foreign_key: true|
 
 ### Association
 - belongs_to :user
 - has_one :purchase
+- has_many :images
 
-
-## addressesテーブル
+## imageテーブル
 |Column|Type|Options|
 |------|----|-------|
-|postal_code|integer|-------|
-|prefectures|----|-------|
-|city|----|-------|
-|address|----|-------|
+|image|string|null: false|
+|item_id|integer|foreign_key: true|
+
+### Association
+- belongs_to :item
+
+## addressテーブル
+|Column|Type|Options|
+|------|----|-------|
+|postal_code|string|null: false|
+|prefectures|string|null: false|
+|city|string|null: false|
+|address|string|null: false|
 |build_name|string|-------|
-|phone_number|integer|-------|
+|phone_number|integer|null: false|
+|purchase_id|integer|foreign_key: true|
 
 ### Association
 - belongs_to :purchase
@@ -49,9 +58,9 @@
 ## creditテーブル
 |Column|Type|Options|
 |------|----|-------|
-|credit_number|integer|-------|
-|expiration_date|date|-------|
-|security_code|integer|-------|
+|customer_id|string|-------|
+|card_id|string|-------|
+|purchase_id|integer|foreign_key: true|
 
 ### Association
 - belongs_to :purchase
@@ -61,9 +70,11 @@
 |------|----|-------|
 |credit_id|integer|null: false, foreign_key: true|
 |expiration_date|null: false, foreign_key: true|
+|user_id|integer|foreign_key: true|
+|item_id|integer|foreign_key: true|
 
 ### Association
-- has_one :credit_number
+- has_one :credit
 - has_one :address
 - belongs_to :user
 - belongs_to :item
