@@ -1,20 +1,20 @@
  # Furimaー27726 DB設計
 
-## userテーブル
+## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false|
 |email|string|null: false, unique: true|
 |password|string|null: false|
 |name|string|null: false|
-|ruby_name|string|null: false|
+|name_kana|string|null: false|
 |birthday|date|null: false|
 
 ### Association
 - has_many :items
 - has_many :purchases
 
-## itemテーブル
+## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
@@ -32,7 +32,7 @@
 - has_one :purchase
 - has_many :images
 
-## imageテーブル
+## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null: false|
@@ -41,7 +41,7 @@
 ### Association
 - belongs_to :item
 
-## addressテーブル
+## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |postal_code|string|null: false|
@@ -55,7 +55,7 @@
 ### Association
 - belongs_to :purchase
 
-## creditテーブル
+## creditsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |customer_id|string|-------|
@@ -65,7 +65,7 @@
 ### Association
 - belongs_to :purchase
 
-## purchaseテーブル
+## purchasesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |credit_id|integer|null: false, foreign_key: true|
