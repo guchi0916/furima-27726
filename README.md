@@ -25,7 +25,7 @@
 |charge_delivery_fee|text|null: false|
 |ship_form_area|string|null: false|
 |days|text|null: false|
-|user_id|integer|foreign_key: true|
+|user_id|integer|null: false、foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -36,7 +36,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null: false|
-|item_id|integer|foreign_key: true|
+|item_id|integer|null: false、foreign_key: true|
 
 ### Association
 - belongs_to :item
@@ -50,7 +50,7 @@
 |address|string|null: false|
 |build_name|string|-------|
 |phone_number|integer|null: false|
-|purchase_id|integer|foreign_key: true|
+|purchase_id|integer|null: false、foreign_key: true|
 
 ### Association
 - belongs_to :purchase
