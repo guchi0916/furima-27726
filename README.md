@@ -1,4 +1,4 @@
- # Furimaー27726 DB設計
+ <!-- # Furimaー27726 DB設計
 
 ## usersテーブル
 |Column|Type|Options|
@@ -77,4 +77,4 @@
 - has_one :credit
 - has_one :address
 - belongs_to :user
-- belongs_to :item
+- belongs_to :item -->
