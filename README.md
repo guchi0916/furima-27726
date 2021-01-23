@@ -22,7 +22,7 @@
 |name|string|null: false|
 |price|integer|null: false|
 |item_detail|text|null: false|
-|category＿id|integer|null: false|
+|category_id|integer|null: false|
 |status_id|integer|null: false|
 |charge_delivery_fee_id|integer|null: false|
 |prefecture_id|integer|null: false|
