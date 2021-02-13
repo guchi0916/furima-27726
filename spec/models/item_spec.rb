@@ -16,6 +16,14 @@ RSpec.describe Item, type: :model do
       end
 
       context "item is not registered" do
+
+        it 'is invalid without a image' do
+          @item.image = nil
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Image can't be blank")
+        end
+
+
         it "is invalid without a name" do
           @item.name = nil
           @item.valid?
