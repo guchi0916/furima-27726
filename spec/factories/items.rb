@@ -8,6 +8,6 @@ FactoryBot.define do
     charge_delivery_fee_id       {2}
     prefecture_id                {2}
     day_id                       {2}
-    user_id                      {2}                       
+    user
   end
 end

@@ -42,6 +42,18 @@ RSpec.describe Item, type: :model do
           expect(@item.errors[:price]).to include("is not a number")
         end
 
+        it "is invalid if price is full-width" do
+          @item.price = "ああああ"
+          @item.valid?
+          expect(@item.errors[:price]).to include("is not a number")
+        end
+
+        it "is invalid if price is half-width alphanumeric mixed" do
+          @item.price = "11aaa"
+          @item.valid?
+          expect(@item.errors[:price]).to include("is not a number")
+        end
+
         it "price less than 300 is invalid " do
           @item.price = 200
           @item.valid?
@@ -89,13 +101,6 @@ RSpec.describe Item, type: :model do
           @item.valid?
           expect(@item.errors[:day_id]).to include("must be other than 1")
         end
-
-        it "is invalid without user_id" do
-          @item.user_id = nil
-          @item.valid?
-          expect(@item.errors[:user_id]).to include("can't be blank")
-        end
-
 
       end
     end
