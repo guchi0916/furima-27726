@@ -6,8 +6,8 @@ class Item < ApplicationRecord
   belongs_to :charge_delivery_fee
   belongs_to :prefecture
   belongs_to :day
-  belongs_to :user
-
+  belongs_to :user 
+  
   with_options presence: true do  
     validates :image
     validates :name
