@@ -21,7 +21,7 @@ class ItemsController < ApplicationController
   def show   
   end
 
-  def edit
+  def edita
     if user_signed_in?
       if current_user.id != @item.user_id
         redirect_to root_path
