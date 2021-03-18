@@ -27,6 +27,12 @@ RSpec.describe PurchaseAddress, type: :model do
         expect(@purchase_address.errors.full_messages).to include("Postal code can't be blank")
       end
 
+      it 'postal_codeはハイフンなしだと保存できないこと' do
+        @purchase_address.postal_code = '1234567'
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include("Postal code is invalid")
+      end
+
       it 'postal_codeが数字以外だと保存できないこと' do
         @purchase_address.postal_code = 'あああ'
         @purchase_address.valid?
@@ -34,7 +40,7 @@ RSpec.describe PurchaseAddress, type: :model do
       end
 
       it 'prefecture_idが選択していないと保存できないこと' do
-        @purchase_address.prefecture_id = '1'
+        @purchase_address.prefecture_id = 1
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include("Prefecture must be other than 1")
       end
@@ -63,11 +69,36 @@ RSpec.describe PurchaseAddress, type: :model do
         expect(@purchase_address.errors.full_messages).to include("Phone number is invalid")
       end
 
+      it 'Phone numberが12桁以上だと保存できないこと' do
+        @purchase_address.phone_number = "090123456789"
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include("Phone number is invalid")
+      end
+
+      it 'Phone numberが英数混合だと保存できないこと' do
+        @purchase_address.phone_number = "0901234abcd"
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include("Phone number is invalid")
+      end
+
       it "tokenが空では登録できないこと" do
         @purchase_address.token = nil
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include("Token can't be blank")
       end
+ 
+      it "user_idが空では登録できないこと" do
+        @purchase_address.user_id = nil
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include("User can't be blank")
+      end
+
+      it "item_idが空では登録できないこと" do
+        @purchase_address.item_id = nil
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include("Item can't be blank")
+      end
+
 
 
     end
