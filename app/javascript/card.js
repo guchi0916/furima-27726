@@ -3,7 +3,6 @@ const pay = () => {
   const form = document.getElementById("charge-form");
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    // console.log("フォーム送信時にイベント発火")
     const formResult = document.getElementById("charge-form");
     const formData = new FormData(formResult);
 
@@ -13,6 +12,7 @@ const pay = () => {
       exp_year: `20${formData.get("purchase_address[exp_year]")}`,
       cvc: formData.get("purchase_address[cvc]"),
     };
+    console.log(card)
 
     Payjp.createToken(card, (status, response) => {
       if (status == 200) {
