@@ -1,4 +1,5 @@
 FactoryBot.define do
+
   factory :purchase_address do
     postal_code { '123-4567'}
     prefecture_id { 3 }
@@ -7,7 +8,6 @@ FactoryBot.define do
     build_name { 'あああハイツ' }
     phone_number { "09012345678" }
     token {"tok_abcdefghijk00000000000000000"}
-    user_id { 1 }
-    item_id { 2 }
   end
+
 end

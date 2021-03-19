@@ -27,7 +27,7 @@
 |charge_delivery_fee_id|integer|null: false|
 |prefecture_id|integer|null: false|
 |day_id|integer|null: false|
-|user_id|integer|null: false、foreign_key: true|
+|user_id|references|null: false、foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -50,8 +50,8 @@
 ## purchasesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|foreign_key: true|
-|item_id|integer|foreign_key: true|
+|user_id|references|foreign_key: true|
+|item_id|references|foreign_key: true|
 
 ### Association
 - has_one :address

@@ -9,8 +9,6 @@ class User < ApplicationRecord
   has_many :purchases
           
   with_options presence: true do  
-    validates :nickname, uniqueness: true
-
     validates :last_name, format: {with: /\A[ぁ-んァ-ン一-龥々]/}
 
     validates :first_name, format: {with: /\A[ぁ-んァ-ン一-龥々]/}
