@@ -66,4 +66,5 @@ gem 'font-awesome-sass'
 gem 'pry-rails'
 gem 'active_hash'
 gem 'mini_magick'
+gem 'payjp'
 
